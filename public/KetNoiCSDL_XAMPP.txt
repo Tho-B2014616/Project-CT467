@@ -1,0 +1,17 @@
+## QTDL
+
+<VirtualHost *:80>	
+    DocumentRoot "C:/xampp/htdocs" 
+    ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>	
+    DocumentRoot "E:/Project-CT467/public" 
+    ServerName ct467.localhost
+    # Set access permission 
+    <Directory "E:/Project-CT467/public"> 
+	Options Indexes FollowSymLinks Includes ExecCGI
+	AllowOverride All
+	Require all granted
+    </Directory>
+</VirtualHost>

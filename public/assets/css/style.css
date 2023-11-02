@@ -1,0 +1,118 @@
+/* Phần dùng chung */
+
+:root {
+    --border-color: #dbdbdb;
+    --primary-color: #60C5CD;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --header-height: 80px;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem == 10px  ---> 12px ==> 1.2rem*/
+    line-height: 1.6rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Animation */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Header */
+
+.header {
+    height: var(--header-height);
+    background-image: linear-gradient(0, #0086e6, #CDB3D4);
+}
+
+.header__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 600;
+    transform: translateY(14px);
+    text-transform: uppercase;
+}
+
+
+/* Container */
+
+.container__head {
+    height: 160px;
+    background-color: #d9d9d9;
+    width: 100%;
+}
+
+.head__navbar-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.head__navbar-form-table {
+    transform: translateY(10px);
+}
+
+.head__navbar-form-action {
+    transform: translateY(-10px);
+}
+
+.head__navbar-form-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-btn,
+.reset-btn {
+    padding: 8px 16px;
+}
+
+.head__navbar-form-btn .reset-btn {
+    transform: translateX(2rem);
+}
+
+
+/* Tạo kiểu cho radio button tùy chỉnh */
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label {
+    display: inline-block;
+    padding: 5px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 12rem;
+    max-width: 14rem;
+    text-align: center;
+}
+
+
+/* Tạo kiểu cho radio button khi được chọn */
+
+input[type="radio"]:checked+label {
+    background-color: #5899DE;
+    color: #fff;
+}

@@ -63,16 +63,13 @@ html {
 
 .head__navbar-form {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.head__navbar-form-table {
-    transform: translateY(10px);
-}
-
+.head__navbar-form-table,
 .head__navbar-form-action {
-    transform: translateY(-10px);
+    transform: translateY(5px);
 }
 
 .head__navbar-form-btn {
@@ -107,12 +104,33 @@ input[type="radio"]+label {
     width: 12rem;
     max-width: 14rem;
     text-align: center;
+    background-color: #A5AAD8;
 }
 
 
 /* Tạo kiểu cho radio button khi được chọn */
 
 input[type="radio"]:checked+label {
-    background-color: #5899DE;
+    background-color: #198CE4;
     color: #fff;
+}
+
+
+/*  Login form */
+
+.login-contaner {
+    inset: 2rem 11rem;
+    display: flex;
+    justify-content: center;
+    background-color: #e1dede;
+    position: relative;
+    padding: 0 -60px;
+    width: 1200px;
+}
+
+
+/* Resgis and Login Form*/
+
+css .form-container.hidden {
+    display: none;
 }

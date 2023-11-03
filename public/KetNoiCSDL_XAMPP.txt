@@ -6,10 +6,10 @@
 </VirtualHost>
 
 <VirtualHost *:80>	
-    DocumentRoot "E:/Project-CT467/public" 
+    DocumentRoot "E:Project/Project-CT467/public" 
     ServerName ct467.localhost
     # Set access permission 
-    <Directory "E:/Project-CT467/public"> 
+    <Directory "E:Project/Project-CT467/public"> 
 	Options Indexes FollowSymLinks Includes ExecCGI
 	AllowOverride All
 	Require all granted

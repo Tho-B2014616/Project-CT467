@@ -1,4 +1,3 @@
-
 <?php 
     include_once "../model/db_connect.php";
    
@@ -34,4 +33,7 @@
 <body>
     <header class="header">
         <h1 class="header__heading">Quản lý kho</h1>
+
+        <a href="logout.php" class="btn btn-danger header__logout-btn"> Đăng xuất</a>
+
     </header>

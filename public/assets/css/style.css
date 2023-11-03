@@ -52,6 +52,13 @@ html {
     text-transform: uppercase;
 }
 
+.header__logout-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 8px 18px;
+}
+
 
 /* Container */
 

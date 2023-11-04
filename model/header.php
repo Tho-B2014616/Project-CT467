@@ -17,15 +17,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <!-- Bootstrap & JQuery -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
-    </script>
+    
     <!-- Css link -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -37,3 +32,60 @@
         <a href="logout.php" class="btn btn-danger header__logout-btn"> Đăng xuất</a>
 
     </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container__head">
+                <div class="col-12">
+                    <div class="container__head-navbar">
+                        <form method="POST" action="handle.php" class="head__navbar-form">
+                            <div class="head__navbar-form-table">
+                                <h2>Chọn bảng cần thao tác</h2>
+                                <div class="form-table-content">
+
+                                    <input type="radio" id="table1" name="table" value="Hàng Hóa">
+                                    <label for="table1">Hàng Hóa</label>
+
+                                    <input type="radio" id="table2" name="table" value="Nhà cung cấp">
+                                    <label for="table2">Nhà cung cấp</label><br>
+
+                                    <input type="radio" id="table3" name="table" value="Vị trí">
+                                    <label for="table3">Vị trí</label>
+
+                                    <input type="radio" id="table4" name="table" value="Phiếu nhập">
+                                    <label for="table4">Phiếu nhập</label><br>
+
+                                    <input type="radio" id="table5" name="table" value="Phiếu xuất">
+                                    <label for="table5">Phiếu xuất</label>
+                                </div>
+                            </div>
+
+                            <div class="head__navbar-form-action">
+                                <h2>Chọn thao tác</h2>
+                                <div class="form-acction-content">
+                                    <input type="radio" id="action1" name="action" value="Thêm">
+                                    <label for="action1">Thêm</label>
+
+                                    <input type="radio" id="action2" name="action" value="Sửa">
+                                    <label for="action2">Sửa</label><br>
+
+                                    <input type="radio" id="action3" name="action" value="Xóa">
+                                    <label for="action3">Xóa</label>
+
+                                    <input type="radio" id="action4" name="action" value="Tìm kiếm">
+                                    <label for="action4">Tìm kiếm</label><br>
+
+                                    <input type="radio" id="action5" name="action" value="Tìm kiếm">
+                                    <label for="action5">Hiển thị</label>
+                                </div>
+                            </div>
+
+                            <div class="head__navbar-form-btn ">
+                                <input type="submit" value="Thực hiện" class="btn btn-success btn-lg submit-btn">
+                                <input type="reset" value="Hủy bỏ" class="btn btn-warning btn-lg reset-btn">
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>

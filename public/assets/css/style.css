@@ -39,6 +39,8 @@ html {
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #0086e6, #CDB3D4);
+    position: relative;
+    top: 0;
 }
 
 .header__heading {
@@ -74,9 +76,12 @@ html {
     align-items: center;
 }
 
-.head__navbar-form-table,
-.head__navbar-form-action {
+.head__navbar-form-table {
     transform: translateY(5px);
+}
+
+.head__navbar-form-action {
+    transform: translateY(3px);
 }
 
 .head__navbar-form-btn {
@@ -123,21 +128,39 @@ input[type="radio"]:checked+label {
 }
 
 
-/*  Login form */
+/* Các Form thêm*/
 
-.login-contaner {
-    inset: 2rem 11rem;
-    display: flex;
-    justify-content: center;
-    background-color: #e1dede;
+.container__content {
     position: relative;
-    padding: 0 -60px;
-    width: 1200px;
+    top: 4rem;
+    background-color: #8ae3be;
+    font-size: 1.5rem;
 }
 
+.container__content .table {
+    margin-left: 1rem;
+}
 
-/* Resgis and Login Form*/
+.container__form {
+    display: flex;
+    justify-content: center;
+}
 
-css .form-container.hidden {
-    display: none;
+.container__form-content {
+    width: 600px;
+    max-width: 800px;
+    padding: 1rem 0 2rem;
+}
+
+.form-label {
+    font-size: 1.5rem;
+}
+
+.container__form .add-btn {
+    padding: 7px 28px;
+}
+
+.form__footer_btn-reset {
+    transform: translateX(10px);
+    padding: 7px 20px;
 }

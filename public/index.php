@@ -3,12 +3,12 @@
     // Có ảnh minh họa lưu tại: Project-CT467\public\assets\img  
     // Nếu đã tạo xong thì mở các comments bên dưới
 
-    // session_start();
-    // ob_start();
+    session_start();
+    ob_start();
 
-    // if(!isset($_SESSION['admin'])){
-    //     header('location: login_regis.php');
-    // }
+    if(!isset($_SESSION['admin'])){
+        header('location: login_regis.php');
+    }
 
     include_once "../model/header.php";
     include_once "../model/content.php";

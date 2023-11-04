@@ -164,3 +164,10 @@ input[type="radio"]:checked+label {
     transform: translateX(10px);
     padding: 7px 20px;
 }
+
+
+/* Modal edit */
+
+.modal-dialog .modal-content {
+    font-size: 14px;
+}

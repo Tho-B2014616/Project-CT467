@@ -4,7 +4,7 @@
     include_once "../model/check_admin.php";
     /* Handle Login */
     $message_login = "";
-    if(isset($_POST['login-btn'])){
+    if(isset($_POST['login-btn']) && $_POST['user-name'] !='' && $_POST['user-pass']){
         $user_name=$_POST['user-name'];
         $user_pass=$_POST['user-pass'];
         $userOne = check_user($user_name,$user_pass) ;
@@ -26,7 +26,7 @@
     /* Handle Regis */
     $message_regis = "";
     $message_succes = "";
-    if(isset($_POST['regis-btn'])){
+    if(isset($_POST['regis-btn']) && $_POST['username'] !='' && $_POST['pass']){
         $pdo = connect_db();
         $username = $_POST['username'];
         $password = $_POST['pass'];

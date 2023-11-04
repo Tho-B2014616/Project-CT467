@@ -1,6 +1,6 @@
 <?php
-    include_once "../public/form_add.php";
-    // include_once "../public/form_show.php";
+    // include_once "../public/form_add.php";
+    include_once "../public/form_show.php";
 ?>
 
 
@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="container__content">
 
-            <?php echo $form_add_pn  ?>
+            <?php echo $show_ds_hh  ?>
         </div>
     </div>
 </div>

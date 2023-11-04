@@ -1,5 +1,5 @@
 <?php 
-/* Form Thêm Hàng hóa */
+/*(1) Form Thêm Hàng hóa */
 
 $form_add_hang_hoa = '
 <h1 class="text-center pt-1">Thêm hàng hóa</h1>
@@ -34,7 +34,7 @@ $form_add_hang_hoa = '
 </div>';
 
 
-// Form Thêm Vị Trí
+//(2) Form Thêm Vị Trí
 
 $form_add_vitri = '
 <h1 class="text-center pt-1">Thêm vị trí</h1>
@@ -56,7 +56,7 @@ $form_add_vitri = '
     </form>
 </div>';
 
-// Form Thêm nhà cung cấp
+//(3) Form Thêm nhà cung cấp
 $form_add_ncc = '
 <h1 class="text-center pt-1">Thêm nhà cung cấp</h1>
 <div class="container__form">
@@ -81,7 +81,7 @@ $form_add_ncc = '
     </form>
 </div>';
 
-//Form Thêm Phiếu Nhập
+// (4) Form Thêm Phiếu Nhập
 
 $form_add_pn = '
 <h1 class="pt-1 text-center">Thêm phiếu Nhập</h1>
@@ -124,7 +124,7 @@ $form_add_pn = '
 </div>';
 
 
-// // Form Thêm Phiếu Xuất
+//(5) Form Thêm Phiếu Xuất
 $form_add_px = '
 <h1 class="pt-1 text-center">Thêm Phiếu xuất</h1>
 <div class="container__form">

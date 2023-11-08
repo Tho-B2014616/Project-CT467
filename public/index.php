@@ -3,17 +3,48 @@
     // Có ảnh minh họa lưu tại: Project-CT467\public\assets\img  
     // Nếu đã tạo xong thì mở các comments bên dưới
 
-    // session_start();
-    // ob_start();
+    session_start();
+    ob_start();
 
-    // if(!isset($_SESSION['admin'])){
-    //     header('location: login_regis.php');
-    // }
-
+    if(!isset($_SESSION['admin'])){
+        header('location: login_regis.php');
+    }
     include_once "../model/header.php";
-    include_once "../model/content.php";
+
     
-           
+    // include_once __DIR__ . "/../public/form_search_hh.php";
+
+    // include_once "../model/content.php";
+   
+    // include_once "../public/form_search_vitri.php";
+    // include_once "../public/form_search_ncc.php";
+    // include_once "../public/form_search_pn.php";
+    if (isset($_POST['action-btn'])  && !empty($_POST["table"]) && !empty($_POST["action"]) ) {
+        $selectedTable = $_POST["table"];
+        $selectedAction = $_POST["action"];
+        if($selectedTable =="product"){
+            if($selectedAction == "search"){
+                include_once __DIR__ . "/../public/form_search_hh.php";
+            
+            }elseif ($selectedAction == "show"){
+                include_once "../public/form_show.php";               
+                $showItem = $show_ds_hh;
+                include_once "../model/content.php";
+            }
+        }
+      }
+      else {
+        
+        //   echo "Chưa chọn giá trị";
+        
+      }
+
+
+
+
+
+    
+    include_once "../model/footer.php";            
 ?>
 
 

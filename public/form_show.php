@@ -1,12 +1,17 @@
 <?php 
+  include_once __DIR__ . '/../model/db_connect.php';
+  $ds_hh = get_hh();
+  
+
 /* Hiển thị danh sách */
 //(1) Show ds hh
+
 $show_ds_hh = '
 <h1 class="text-center">Danh sách hàng hóa</h1>
 <table class="table">
   <thead>
     <tr>      
-      <th>STT</th>
+      <th></th>
       <th>ID hàng hóa</th>
       <th>Tên hàng hóa</th>
       <th>Số lượng</th>
@@ -576,8 +581,7 @@ $ma_ncc = '42';
 
 
 $show_tt_pn ='
-<h1 class="text-center">Thông tin phiếu nhập hàng</h1>
-        
+<h1 class="text-center">Thông tin phiếu nhập hàng</h1>     
 <div class="row mt-4 ml-1 mr-1">
     <div class="col-md-4">
         <div class="form-group">
@@ -621,7 +625,7 @@ $show_tt_pn ='
                         <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editModal">
                           Cập nhật
                         </button> 
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal">Xóa</button
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal">Xóa</button>
                     </td>
                 </tr>
                 <tr>

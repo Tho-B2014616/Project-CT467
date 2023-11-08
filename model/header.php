@@ -37,12 +37,12 @@
             <div class="container__head">
                 <div class="col-12">
                     <div class="container__head-navbar">
-                        <form method="POST" action="handle.php" class="head__navbar-form">
+                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>" class="head__navbar-form">
                             <div class="head__navbar-form-table">
                                 <h2>Chọn bảng cần thao tác</h2>
                                 <div class="form-table-content">
 
-                                    <input type="radio" id="table1" name="table" value="Hàng Hóa">
+                                    <input type="radio" id="table1" name="table" value="product">
                                     <label for="table1">Hàng Hóa</label>
 
                                     <input type="radio" id="table2" name="table" value="Nhà cung cấp">
@@ -62,25 +62,19 @@
                             <div class="head__navbar-form-action">
                                 <h2>Chọn thao tác</h2>
                                 <div class="form-acction-content">
-                                    <input type="radio" id="action1" name="action" value="Thêm">
+                                    <input type="radio" id="action1" name="action" value="add">
                                     <label for="action1">Thêm</label>
 
-                                    <input type="radio" id="action2" name="action" value="Sửa">
-                                    <label for="action2">Sửa</label><br>
-
-                                    <input type="radio" id="action3" name="action" value="Xóa">
-                                    <label for="action3">Xóa</label>
-
-                                    <input type="radio" id="action4" name="action" value="Tìm kiếm">
+                                    <input type="radio" id="action4" name="action" value="search">
                                     <label for="action4">Tìm kiếm</label><br>
 
-                                    <input type="radio" id="action5" name="action" value="Tìm kiếm">
+                                    <input type="radio" id="action5" name="action" value="show">
                                     <label for="action5">Hiển thị</label>
                                 </div>
                             </div>
 
                             <div class="head__navbar-form-btn ">
-                                <input type="submit" value="Thực hiện" class="btn btn-success btn-lg submit-btn">
+                                <input type="submit" name="action-btn" value="Thực hiện" class="btn btn-success btn-lg submit-btn">
                                 <input type="reset" value="Hủy bỏ" class="btn btn-warning btn-lg reset-btn">
 
                             </div>

@@ -42,7 +42,29 @@ function get_one($sql){
     $pdo = NULL;
     return $Product;
 }
+/* Trả về kết quả tìm kiếm */
+function get_result_Search($sql){
+    $pdo = connect_db();
+    $keyword = $_GET['keyword'];
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['keyword' => '%' . $keyword . '%']);
+    $results = $stmt->fetchAll();
+    $pdo=null;
 
+    return $results ;
+
+}
+function get_one_result_Search($sql){
+    $pdo = connect_db();
+    $keyword = $_GET['keyword'];
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['keyword' =>  $keyword  ]);
+    $results = $stmt->fetchAll();
+    $pdo=null;
+
+    return $results ;
+
+}
 // Có thể sử dụng các hàm ở trên cho ngắn gọn 
 // Đây chỉ là minh họa, mọi người có thể viết theo cách của mình. 
 // Vd: lấy tất cả hàng hóa của table hang_hoa

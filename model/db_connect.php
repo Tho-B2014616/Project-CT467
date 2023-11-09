@@ -42,7 +42,7 @@ function get_one($sql){
     $pdo = NULL;
     return $Product;
 }
-/* Trả về kết quả tìm kiếm */
+// Hàm trả về  kết quả tìm kiếm khi nhập "keyword là chuỗi bất kỳ" 
 function get_result_Search($sql){
     $pdo = connect_db();
     $keyword = $_GET['keyword'];
@@ -54,6 +54,7 @@ function get_result_Search($sql){
     return $results ;
 
 }
+// Hàm trả về kết quả  tìm kiếm khi nhập " keyword là ID "
 function get_one_result_Search($sql){
     $pdo = connect_db();
     $keyword = $_GET['keyword'];

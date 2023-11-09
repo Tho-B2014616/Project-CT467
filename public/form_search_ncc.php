@@ -1,12 +1,13 @@
 <?php 
+    include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
     $results = "";
     if(isset($_GET['search-btn']) && !empty($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
         
-        // Sử dụng PDO để truy vấn CSDL
-        $results = find_ncc_NameSP($keyword);
+        //Biến results thông tin ncc ( Nếu tìm được! )
+        $results = find_Ncc_ID($keyword);
         if(!empty($results)){
             $display = 'd-block';
         }else {
@@ -15,14 +16,35 @@
         
     }
     
-    
-    function find_ncc_NameSP($keyword){
+    //(1)Tìm ncc theo tên SP
+    function find_Ncc_NameSP($keyword){
         $sql = "SELECT a.Ten_SP, b.ID_NCC, b.Ten_NCC, b.SDT, b.Email
         FROM hang_hoa a , nha_cung_cap b 
         WHERE a.ID_NCC = b.ID_NCC                          
             and a.Ten_SP LIKE :keyword
         ORDER BY b.ID_NCC";
-        return  get_result_Search($sql);
+        return  get_result_Search($sql);        
+                                                 
+    }
+    //(2)Tìm ncc theo ID NCC
+    function find_Ncc_ID($keyword){
+        $sql = "SELECT a.Ten_SP, b.ID_NCC, b.Ten_NCC, b.SDT, b.Email
+        FROM hang_hoa a , nha_cung_cap b 
+        WHERE a.ID_NCC = b.ID_NCC                          
+            and b.ID_NCC LIKE :keyword
+        ORDER BY b.ID_NCC";
+        return  get_one_result_Search($sql);        
+                                                 
+    }
+    //(3)Tìm ncc theo tên NCC
+    function find_Ncc_Name($keyword){
+        $sql = "SELECT a.Ten_SP, b.ID_NCC, b.Ten_NCC, b.SDT, b.Email
+        FROM hang_hoa a , nha_cung_cap b 
+        WHERE a.ID_NCC = b.ID_NCC                          
+            and b.Ten_NCC LIKE :keyword
+        ORDER BY b.ID_NCC";
+        return  get_result_Search($sql);        
+                                                 
     }
     
 
@@ -30,13 +52,13 @@
 <div class="row">
     <div class="col-md-12">
         <div class="container__search">
-            <h1 class="text-center pb-4">Tìm kiếm sản phẩm</h1>
+            <h1 class="text-center pb-4">Tìm kiếm nhà cung cấp</h1>
 
             <div class="form__search">
-                <form method="GET">
+                <form method="GET" action="">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg form__search-input" name="keyword"
-                            placeholder="Tìm kiếm sản phẩm">
+                            placeholder="Tìm nhà cung cấp theo tên SP">
                         <div class="input-group-append">
                             <button class="btn btn-primary" name="search-btn" type="submit">Tìm kiếm</button>
                         </div>
@@ -167,3 +189,7 @@
 
 </div>
 
+<?php 
+    include_once "../model/footer.php";
+
+?>

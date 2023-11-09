@@ -1,23 +1,13 @@
 <?php 
-    // include_once "../model/header.php";
+    include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
     $results = "";
-    if( !empty($_GET['keyword'])) {
+    if( isset($_GET['search-btn']) && !empty($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
         
-        // Sử dụng PDO để truy vấn CSDL
-        $stmt = $pdo->prepare(" SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
-                                FROM hang_hoa a , vi_tri b , nha_cung_cap c
-                                WHERE a.ID_VT = b.ID_VT 
-                                    and a.ID_NCC=c.ID_NCC  
-                                    and a.Ten_SP LIKE :keyword
-                                ORDER BY a.ID_HH "   
-                            );
-                                
-        $stmt->execute(['keyword' => '%' . $keyword . '%']);
-        $results = $stmt->fetchAll();
-        $no_reult = '';
+        //Biến results lưu thông tin hh ( Nếu tìm được! )
+        $results = find_hh_name($keyword);
         if(!empty($results)){
             $display = 'd-block';
         }else {
@@ -26,6 +16,56 @@
         }
         
     }
+    //(1) Tìm hàng hóa theo tên
+    function find_hh_name(){
+        $sql = "SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
+        FROM hang_hoa a , vi_tri b , nha_cung_cap c
+        WHERE a.ID_VT = b.ID_VT 
+            and a.ID_NCC=c.ID_NCC  
+            and a.Ten_SP LIKE :keyword
+        ORDER BY a.ID_HH";
+        return  get_result_Search($sql);
+    }
+    //(2) Tìm hàng hóa theo ID HH
+    function find_hh_ID(){
+        $sql = "SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
+        FROM hang_hoa a , vi_tri b , nha_cung_cap c
+        WHERE a.ID_VT = b.ID_VT 
+            and a.ID_NCC=c.ID_NCC  
+            and a.ID_HH LIKE :keyword
+        ORDER BY a.ID_HH";
+        return  get_one_result_Search($sql);
+    }
+    //(3) Tìm hàng hóa theo ID kệ
+    function find_hh_ke(){
+        $sql = "SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
+        FROM hang_hoa a , vi_tri b , nha_cung_cap c
+        WHERE a.ID_VT = b.ID_VT 
+            and a.ID_NCC=c.ID_NCC  
+            and  b.So_ke LIKE :keyword
+        ORDER BY a.ID_HH";
+        return  get_one_result_Search($sql);
+    }
+    //(4) Tìm hàng hóa theo ID lô
+    function find_hh_lo(){
+        $sql = "SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
+        FROM hang_hoa a , vi_tri b , nha_cung_cap c
+        WHERE a.ID_VT = b.ID_VT 
+            and a.ID_NCC=c.ID_NCC  
+            and a.ID_HH LIKE :keyword
+        ORDER BY a.ID_HH";
+        return  get_one_result_Search($sql);
+    }
+    //(5) Tìm hàng hóa theo ID ncc
+    function find_hh_ncc(){
+        $sql = "SELECT a.ID_HH, a.Ten_SP, a.So_lg, a.DVT, b.So_lo, b.So_ke, c.Ten_NCC
+        FROM hang_hoa a , vi_tri b , nha_cung_cap c
+        WHERE a.ID_VT = b.ID_VT 
+            and a.ID_NCC=c.ID_NCC  
+            and c.Ten_NCC LIKE :keyword
+        ORDER BY a.ID_HH";
+        return  get_result_Search($sql);
+    }
     
 
 ?>
@@ -33,20 +73,21 @@
     <div class="col-md-12">
         <div class="container__search">
             <h1 class="text-center pb-4">Tìm kiếm sản phẩm</h1>
-
+            <!-- Form search -->
             <div class="form__search">
-                <form method="GET" >
+                <form method="GET" action="form_search_hh.php?">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg form__search-input" name="keyword"
-                            placeholder="Tìm kiếm sản phẩm">
+                            placeholder="Nhập tên sản phẩm để cần tìm ">
                         <div class="input-group-append">
                             <button class="btn btn-primary" name="search-btn" type="submit">Tìm kiếm</button>
                         </div>
                     </div>
                 </form>
             </div>
-
             <!--end: form search -->
+
+            <!-- Info product -->
             <div class="container__search-info d-none <?=$display?>">
                 <h1 class="text-center">Thông tin hàng hóa</h1>
                 <table class="table">
@@ -146,16 +187,25 @@
                                         <input type="number" min="0" class="form-control form-control-lg"
                                             id="productqnt">
                                     </div>
+
                                     <div class="form-group">
                                         <label for="don_vi_tinh">Đơn vị tính:</label>
                                         <select class="form-control form-control-lg" id="don_vi_tinh">
                                             <option value="Bottle">Bottle</option>
                                             <option value="Kg">Kg</option>
+                                            <option value="piece">piece</option>
+                                            <option value="set">set</option>
+                                            <option value="bag">bag</option>
+                                            <option value="case">case</option>
+                                            <option value="box">box</option>
+                                            <option value="carton">carton</option>
+                                            <option value="bundle">bundle</option>
+                                            <option value="pack">pack</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="productsolo">Số lô:</label>
-                                        <input type="number" min="1" max="5" class="form-control form-control-lg"
+                                        <input type="number" min="1" max="20" class="form-control form-control-lg"
                                             id="productsolo">
                                     </div>
                                     <div class="form-group">

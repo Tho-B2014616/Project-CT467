@@ -14,21 +14,34 @@ $form_add_hang_hoa = '
             <input type="number" class="form-control form-control-lg" min="1" id="quantity" placeholder="Nhập số lượng">
         </div>
         <div class="form-group">
-        <label for="don_vi_tinh">Đơn vị tính:</label>
-        <select class="form-control form-control-lg" id="don_vi_tinh">
-          <option value="Bottle">Bottle</option>
-          <option value="Kg">Kg</option>
-        </select>
-      </div>
+            <label for="don_vi_tinh">Đơn vị tính:</label>
+            <select class="form-control form-control-lg" id="don_vi_tinh">
+            <option value="Bottle">Bottle</option>
+            <option value="Kg">Kg</option>
+            <option value="piece">piece</option>
+            <option value="set">set</option>
+            <option value="bag">bag</option>
+            <option value="case">case</option>
+            <option value="box">box</option>
+            <option value="carton">carton</option>
+            <option value="bundle">bundle</option>
+            <option value="pack">pack</option>
+            </select>
+        </div>
         <div class="form-group">
             <label for="location" class="form-label">Vị trí:</label>
             <input type="number" min="1" class="form-control form-control-lg" id="location"
                 placeholder="Nhập ID vị trí">
         </div>
+        <div class="form-group">
+            <label for="ncc" class="form-label">Nhà cung cấp:</label>
+            <input type="number" min="1" class="form-control form-control-lg" id="ncc"
+                placeholder="Nhập ID nhà cung cấp">
+        </div>
 
         <div class="form__footer_btn">
-        <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
-        <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
+            <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
+            <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
         </div>
     </form>
 </div>';
@@ -50,8 +63,8 @@ $form_add_vitri = '
         </div>
         
         <div class="form__footer_btn">
-        <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
-        <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
+            <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
+            <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
         </div>
     </form>
 </div>';
@@ -67,7 +80,7 @@ $form_add_ncc = '
         </div>
         <div class="form-group">
             <label for="sdt" class="form-label">Số điện thoại:</label>
-            <input type="text" class="form-control form-control-lg" id="sdt" placeholder="Nhập số điện thoại">
+            <input type="tel" class="form-control form-control-lg" id="sdt" placeholder="Nhập số điện thoại">
         </div>
         <div class="form-group">
             <label for="email" class="form-label">Email:</label>
@@ -75,8 +88,8 @@ $form_add_ncc = '
         </div>
         
         <div class="form__footer_btn">
-        <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
-        <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
+            <button type="submit" name="add-btn" class="btn btn-primary btn-lg add-btn">Thêm</button>
+            <button type="reset" name="reset-btn" class="btn btn-danger btn-lg form__footer_btn-reset">Hủy bỏ</button>
         </div>
     </form>
 </div>';
@@ -128,7 +141,7 @@ $form_add_pn = '
 $form_add_px = '
 <h1 class="pt-1 text-center">Thêm Phiếu xuất</h1>
 <div class="container__form">
-    <form class="container__form-content" method="POST">
+    <form class="container__form-content" method="POST" action="">
         <div class="form-group">
             <label for="id_px">ID phiếu xuất:</label>
             <input type="number" min="1" id="id_px" class="form-control form-control-lg" required>

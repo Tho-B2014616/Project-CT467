@@ -11,7 +11,7 @@ $show_ds_hh = '
 <table class="table">
   <thead>
     <tr>      
-      <th></th>
+      <th>STT</th>
       <th>ID hàng hóa</th>
       <th>Tên hàng hóa</th>
       <th>Số lượng</th>
@@ -104,11 +104,19 @@ $show_ds_hh = '
                 <input type="number" min="0" class="form-control form-control-lg" id="productqnt">
             </div>
             <div class="form-group">
-                <label for="don_vi_tinh">Đơn vị tính:</label>
-                <select class="form-control form-control-lg" id="don_vi_tinh">
-                    <option value="Bottle">Bottle</option>
-                    <option value="Kg">Kg</option>
-            </select>
+              <label for="don_vi_tinh">Đơn vị tính:</label>
+              <select class="form-control form-control-lg" id="don_vi_tinh">
+                <option value="Bottle">Bottle</option>
+                <option value="Kg">Kg</option>
+                <option value="piece">piece</option>
+                <option value="set">set</option>
+                <option value="bag">bag</option>
+                <option value="case">case</option>
+                <option value="box">box</option>
+                <option value="carton">carton</option>
+                <option value="bundle">bundle</option>
+                <option value="pack">pack</option>
+              </select>
             </div>
             <div class="form-group">
                 <label for="productsolo">Số lô:</label>
@@ -141,6 +149,7 @@ $show_ds_vitri = '
 <table class="table">
     <thead>
         <tr>
+            <th>STT</th>
             <th>ID vị trí</th>
             <th>Số kệ</th>
             <th>Số lô</th>
@@ -149,6 +158,7 @@ $show_ds_vitri = '
     </thead>
     <tbody>
         <tr>
+            <td>1</td>
             <td>1</td>
             <td>1</td>
             <td>3</td>
@@ -160,6 +170,7 @@ $show_ds_vitri = '
             </td>
         </tr>
         <tr>
+            <td>2</td>
             <td>1</td>
             <td>1</td>
             <td>3</td>
@@ -583,24 +594,19 @@ $ma_ncc = '42';
 $show_tt_pn ='
 <h1 class="text-center">Thông tin phiếu nhập hàng</h1>     
 <div class="row mt-4 ml-1 mr-1">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="ma-phieu">Mã phiếu:</label>
             <input type="number"  class="form-control form-control-lg" id="ma-phieu" readonly value="'.$id_pn.'">
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="ngay-nhap">Ngày nhập:</label>
             <input type="date" class="form-control form-control-lg" id="ngay-nhap" readonly value="'.$ngay_pn.'">
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="ngay-nhap">Mã nhà cung cấp:</label>
-            <input type="number" class="form-control form-control-lg" id="ngay-nhap" readonly value="'.$ma_ncc.'">
-        </div>
-    </div>
+    
 </div>
 
 <div class="row">
@@ -705,24 +711,19 @@ $show_tt_pn ='
 $show_tt_px = '<h1 class="text-center">Thông tin phiếu xuất hàng</h1>
         
 <div class="row mt-4 ml-1 mr-1">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="ma-phieu">Mã phiếu:</label>
             <input type="number"  class="form-control form-control-lg" id="ma-phieu" readonly value="'.$id_pn.'">
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="ngay-xuất">Ngày xuất:</label>
             <input type="date" class="form-control form-control-lg" id="ngay-xuất" readonly value="'.$ngay_pn.'">
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="ngay-nhap">Mã nhà cung cấp:</label>
-            <input type="number" class="form-control form-control-lg" id="ngay-nhap" readonly value="'.$ma_ncc.'">
-        </div>
-    </div>
+    
 </div>
 <div class="row">
     <div class="col-md-12">

@@ -1,26 +1,37 @@
 <?php 
+    include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
     $results = "";
     if(isset($_GET['search-btn']) && !empty($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
         
-        // Sử dụng PDO để truy vấn CSDL
-        $stmt = $pdo->prepare(" SELECT a.Ten_SP, b.ID_VT, b.So_lo, b.So_ke
-                                FROM hang_hoa a , vi_tri b 
-                                WHERE a.ID_VT = b.ID_VT                           
-                                    and a.Ten_SP LIKE :keyword
-                                ORDER BY a.Ten_SP "   
-                            );
-                               
-        $stmt->execute(['keyword' => '%' . $keyword . '%']);
-        $results = $stmt->fetchAll();
+        //Biến results lưu vị trí của  sản phẩm ( Nếu tìm được! )
+        $results = find_vitri_IdVT($keyword);
         if(!empty($results)){
             $display = 'd-block';
         }else {
             $display = 'd-none';
         }
         
+    }
+    //(1)Tìm vị trí  theo tên SP
+    function find_vitri_NameSP(){
+        $sql = "SELECT a.Ten_SP, b.ID_VT, b.So_lo, b.So_ke
+        FROM hang_hoa a , vi_tri b 
+        WHERE a.ID_VT = b.ID_VT                           
+            and a.Ten_SP LIKE :keyword
+        ORDER BY a.Ten_SP";
+        return  get_result_Search($sql);
+    }
+    //(2) Tìm vị trí theo ID vị trí
+    function find_vitri_IdVT(){
+        $sql = "SELECT a.Ten_SP, b.ID_VT, b.So_lo, b.So_ke
+        FROM hang_hoa a , vi_tri b 
+        WHERE a.ID_VT = b.ID_VT                           
+            and a.ID_VT LIKE :keyword
+        ORDER BY b.ID_VT";
+        return  get_one_result_Search($sql);
     }
    
     
@@ -29,13 +40,13 @@
 <div class="row">
     <div class="col-md-12">
         <div class="container__search">
-            <h1 class="text-center pb-4">Tìm kiếm sản phẩm</h1>
+            <h1 class="text-center pb-4">Tìm vị trí của sản phẩm</h1>
 
             <div class="form__search">
                 <form method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg form__search-input" name="keyword"
-                            placeholder="Tìm kiếm sản phẩm">
+                            placeholder="Nhập tên sản phẩm để tìm vị trí của nó">
                         <div class="input-group-append">
                             <button class="btn btn-primary" name="search-btn" type="submit">Tìm kiếm</button>
                         </div>
@@ -68,9 +79,9 @@
                                 <tr>
                                     <td>'.$i.'</td>
                                     <td>'.$Ten_SP.'</td>
+                                    <td>'.$ID_VT.'</td>
                                     <td>'.$So_ke.'</td>
                                     <td>'.$So_lo.'</td>
-                                    <td>3</td>
                                     <td>
                                         <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editModal">
                                         Cập nhật
@@ -123,6 +134,11 @@
                         <div class="modal-body">
                             <form method="POST" action="">
                                 <div class="form-group">
+                                    <label for="product_name">Tên hàng hóa:</label>
+                                    <input type="text"  class="form-control form-control-lg"
+                                        id="product_name">
+                                </div>
+                                <div class="form-group">
                                     <label for="product_vitri">ID vị trí:</label>
                                     <input type="number" min="1" class="form-control form-control-lg"
                                         id="product_vitri">
@@ -135,7 +151,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="productsolo">Số lô:</label>
-                                    <input type="number" min="1" max="5" class="form-control form-control-lg"
+                                    <input type="number" min="1" max="20" class="form-control form-control-lg"
                                         id="productsolo">
                                 </div>
 
@@ -150,12 +166,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <?php 
+            <?php 
                 if(isset($_GET['search-btn']) && empty($results)){
                     echo '<h2 class="text-center text-danger pt-4">Không tìm thấy kết quả !</h2>';
                 }
-        ?>
+            ?>
+        </div>
+        
 
 
     </div>
@@ -163,3 +180,7 @@
 </div>
 
 </div>
+<?php 
+    include_once "../model/footer.php";
+
+?>

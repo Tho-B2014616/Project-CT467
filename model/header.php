@@ -45,16 +45,16 @@
                                     <input type="radio" id="table1" name="table" value="product">
                                     <label for="table1">Hàng Hóa</label>
 
-                                    <input type="radio" id="table2" name="table" value="Nhà cung cấp">
+                                    <input type="radio" id="table2" name="table" value="ncc">
                                     <label for="table2">Nhà cung cấp</label><br>
 
-                                    <input type="radio" id="table3" name="table" value="Vị trí">
+                                    <input type="radio" id="table3" name="table" value="vitri">
                                     <label for="table3">Vị trí</label>
 
-                                    <input type="radio" id="table4" name="table" value="Phiếu nhập">
+                                    <input type="radio" id="table4" name="table" value="pn">
                                     <label for="table4">Phiếu nhập</label><br>
 
-                                    <input type="radio" id="table5" name="table" value="Phiếu xuất">
+                                    <input type="radio" id="table5" name="table" value="px">
                                     <label for="table5">Phiếu xuất</label>
                                 </div>
                             </div>

@@ -12,7 +12,6 @@
     include_once "../model/header.php";
 
     
-    // include_once __DIR__ . "/../public/form_search_hh.php";
 
     // include_once "../model/content.php";
    
@@ -30,15 +29,61 @@
                 include_once "../public/form_show.php";               
                 $showItem = $show_ds_hh;
                 include_once "../model/content.php";
+            }else{
+
             }
         }
+        elseif($selectedTable =="ncc"){
+            if($selectedAction == "search"){
+                include_once __DIR__ . "/../public/form_search_ncc.php";
+            
+            }elseif ($selectedAction == "show"){
+                include_once "../public/form_show.php";               
+                $showItem = $show_ds_ncc;
+                include_once "../model/content.php";
+            }else{
+                
+            }
+        } elseif($selectedTable =="vitri"){
+            if($selectedAction == "search"){
+                include_once __DIR__ . "/../public/form_search_hh.php";
+            
+            }elseif ($selectedAction == "show"){
+                include_once "../public/form_show.php";               
+                $showItem = $show_ds_vitri;
+                include_once "../model/content.php";
+            }else{
+                
+            }
+        } elseif($selectedTable =="pn"){
+            if($selectedAction == "search"){
+                include_once __DIR__ . "/../public/form_search_hh.php";
+            
+            }elseif ($selectedAction == "show"){
+                include_once "../public/form_show.php";               
+                $showItem = $show_ds_pn;
+                include_once "../model/content.php";
+            }else{
+                
+            }
+        }elseif($selectedTable =="px"){
+            if($selectedAction == "search"){
+                include_once __DIR__ . "/../public/form_search_hh.php";
+            
+            }elseif ($selectedAction == "show"){
+                include_once "../public/form_show.php";               
+                $showItem = $show_ds_px;
+                include_once "../model/content.php";
+            }else{
+                
+            }
       }
       else {
         
         //   echo "Chưa chọn giá trị";
         
       }
-
+    }
 
 
 

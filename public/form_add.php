@@ -1,4 +1,7 @@
-<?php 
+<?php
+//Ghi chú: Có bổ sung thêm một số đơn vị tính mới trong form_add_hang_hoa và những form có chọn DVT
+
+
 /*(1) Form Thêm Hàng hóa */
 
 $form_add_hang_hoa = '

@@ -1,4 +1,5 @@
 <?php 
+    //ghi chú: đã thay đổi tên hàm tìm kiếm và thêm mới 1 số hàm
     include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
@@ -7,7 +8,7 @@
         $keyword = $_GET['keyword'];
 
         //Biến results thông tin phiếu nhập ( Nếu tìm được! )
-        $results =find_PN_NameHH($keyword);
+        $results =find_PN_ID($keyword);
         if(is_array($results) && !empty($results)){
             foreach($results as $item){                           
                 extract($item);

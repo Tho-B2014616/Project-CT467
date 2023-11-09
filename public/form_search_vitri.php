@@ -1,4 +1,5 @@
 <?php 
+    //ghi chú: đã thay đổi tên hàm tìm kiếm và thêm mới 1 số hàm
     include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
@@ -7,7 +8,7 @@
         $keyword = $_GET['keyword'];
         
         //Biến results lưu vị trí của  sản phẩm ( Nếu tìm được! )
-        $results = find_vitri_IdVT($keyword);
+        $results = find_vitri_NameSP($keyword);
         if(!empty($results)){
             $display = 'd-block';
         }else {

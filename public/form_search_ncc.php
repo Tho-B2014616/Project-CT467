@@ -1,4 +1,5 @@
 <?php 
+    //ghi chú: đã thay đổi tên hàm tìm kiếm và thêm mới 1 số hàm
     include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();
@@ -7,7 +8,7 @@
         $keyword = $_GET['keyword'];
         
         //Biến results thông tin ncc ( Nếu tìm được! )
-        $results = find_Ncc_ID($keyword);
+        $results = find_Ncc_NameSP($keyword);
         if(!empty($results)){
             $display = 'd-block';
         }else {
@@ -27,7 +28,7 @@
                                                  
     }
     //(2)Tìm ncc theo ID NCC
-    function find_Ncc_ID($keyword){
+    function find_Ncc_IDNcc($keyword){
         $sql = "SELECT a.Ten_SP, b.ID_NCC, b.Ten_NCC, b.SDT, b.Email
         FROM hang_hoa a , nha_cung_cap b 
         WHERE a.ID_NCC = b.ID_NCC                          
@@ -37,7 +38,7 @@
                                                  
     }
     //(3)Tìm ncc theo tên NCC
-    function find_Ncc_Name($keyword){
+    function find_Ncc_NameNcc($keyword){
         $sql = "SELECT a.Ten_SP, b.ID_NCC, b.Ten_NCC, b.SDT, b.Email
         FROM hang_hoa a , nha_cung_cap b 
         WHERE a.ID_NCC = b.ID_NCC                          

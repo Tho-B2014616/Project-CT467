@@ -1,4 +1,5 @@
 <?php 
+    //ghi chú: đã thay đổi tên hàm tìm kiếm và thêm mới 1 số hàm
     include_once "../model/header.php";
     include_once "../model/db_connect.php";
     $pdo = connect_db();

@@ -1,6 +1,6 @@
 <?php 
   include_once __DIR__ . '/../model/db_connect.php';
-  $ds_hh = get_hh();
+  
   
 
 /* Hiển thị danh sách */

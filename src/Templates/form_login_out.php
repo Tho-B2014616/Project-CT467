@@ -1,3 +1,59 @@
+<<<<<<< HEAD:src/Templates/form_login_out.php
+=======
+<?php 
+    session_start();
+    include_once "../model/db_connect.php";
+    include_once "../model/check_admin.php";
+    /* Handle Login */
+    $message_login = "";
+    if(isset($_POST['login-btn']) && $_POST['user-name'] !='' && $_POST['user-pass']){
+        $user_name=$_POST['user-name'];
+        $user_pass=$_POST['user-pass'];
+        $userOne = check_user($user_name,$user_pass) ;
+
+        if(is_array($userOne)){
+            extract($userOne);            
+            $_SESSION['admin']=1;
+            $_SESSION['user_name']=$user_name;
+            header('location: index.php');
+        } else {
+            $message_login = "Tài khoản hoặc mật khẩu chưa chính xác!";
+
+        }              
+                           
+    } else{
+        $message_login="";
+    }
+     
+    /* Handle Regis */
+    $message_regis = "";
+    $message_succes = "";
+    if(isset($_POST['regis-btn']) && $_POST['username'] !='' && $_POST['pass']){
+        $pdo = connect_db();
+        $username = $_POST['username'];
+        $password = $_POST['pass'];
+        $userOne = check_user($username,$password) ;
+        if(!$userOne){
+            $sql = "INSERT INTO user (user_name, password) VALUES (:username, :password)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();  
+            $mess_alert = "alert-success";
+            $message_regis = "Đăng ký thành công!!";     
+        }else {
+            $mess_alert = "alert-danger";
+            $message_regis = "Tài khoản này đã tồn tại!";
+        }
+
+    }
+    
+   
+?>
+
+
+
+>>>>>>> 094bbb29f2796309818dc72c90f97fe04f03d13a:public/login_regis.php
 <!DOCTYPE html>
 <html lang="en">
 

@@ -31,7 +31,11 @@
             <div class="container__head">
                 <div class="col-12">
                     <div class="container__head-navbar">
+<<<<<<< HEAD:src/Templates/header.php
                         <form method="POST" action="" class="head__navbar-form">
+=======
+                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>" class="head__navbar-form">
+>>>>>>> 094bbb29f2796309818dc72c90f97fe04f03d13a:model/header.php
                             <div class="head__navbar-form-table">
                                 <h2>Chọn bảng cần thao tác</h2>
                                 <div class="form-table-content">
@@ -39,6 +43,7 @@
                                     <input type="radio" id="table1" name="table" value="product">
                                     <label for="table1">Hàng Hóa</label>
 
+<<<<<<< HEAD:src/Templates/header.php
                                     <input type="radio" id="table2" name="table" value="supplier">
                                     <label for="table2">Nhà cung cấp</label><br>
 
@@ -49,6 +54,18 @@
                                     <label for="table4">Phiếu nhập</label><br>
 
                                     <input type="radio" id="table5" name="table" value="PX">
+=======
+                                    <input type="radio" id="table2" name="table" value="ncc">
+                                    <label for="table2">Nhà cung cấp</label><br>
+
+                                    <input type="radio" id="table3" name="table" value="vitri">
+                                    <label for="table3">Vị trí</label>
+
+                                    <input type="radio" id="table4" name="table" value="pn">
+                                    <label for="table4">Phiếu nhập</label><br>
+
+                                    <input type="radio" id="table5" name="table" value="px">
+>>>>>>> 094bbb29f2796309818dc72c90f97fe04f03d13a:model/header.php
                                     <label for="table5">Phiếu xuất</label>
                                 </div>
                             </div>

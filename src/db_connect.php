@@ -42,7 +42,30 @@ function get_one($sql){
     $pdo = NULL;
     return $Product;
 }
+// Hàm trả về  kết quả tìm kiếm khi nhập "keyword là chuỗi bất kỳ" 
+function get_result_Search($sql){
+    $pdo = connect_db();
+    $keyword = $_GET['keyword'];
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['keyword' => '%' . $keyword . '%']);
+    $results = $stmt->fetchAll();
+    $pdo=null;
 
+    return $results ;
+
+}
+// Hàm trả về kết quả  tìm kiếm khi nhập " keyword là ID "
+function get_one_result_Search($sql){
+    $pdo = connect_db();
+    $keyword = $_GET['keyword'];
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['keyword' =>  $keyword  ]);
+    $results = $stmt->fetchAll();
+    $pdo=null;
+
+    return $results ;
+
+}
 // Có thể sử dụng các hàm ở trên cho ngắn gọn 
 // Đây chỉ là minh họa, mọi người có thể viết theo cách của mình. 
 // Vd: lấy tất cả hàng hóa của table hang_hoa

@@ -1,56 +1,3 @@
-<?php 
-    session_start();
-    include_once "../model/db_connect.php";
-    include_once "../model/check_admin.php";
-    /* Handle Login */
-    $message_login = "";
-    if(isset($_POST['login-btn'])){
-        $user_name=$_POST['user-name'];
-        $user_pass=$_POST['user-pass'];
-        $userOne = check_user($user_name,$user_pass) ;
-
-        if(is_array($userOne)){
-            extract($userOne);            
-            $_SESSION['admin']=1;
-            $_SESSION['user_name']=$user_name;
-            header('location: index.php');
-        } else {
-            $message_login = "Tài khoản hoặc mật khẩu chưa chính xác!";
-
-        }              
-                           
-    } else{
-        $message_login="";
-    }
-     
-    /* Handle Regis */
-    $message_regis = "";
-    $message_succes = "";
-    if(isset($_POST['regis-btn'])){
-        $pdo = connect_db();
-        $username = $_POST['username'];
-        $password = $_POST['pass'];
-        $userOne = check_user($username,$password) ;
-        if(!$userOne){
-            $sql = "INSERT INTO user (user_name, password) VALUES (:username, :password)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':password', $password);
-            $stmt->execute();  
-            $mess_alert = "alert-success";
-            $message_regis = "Đăng ký thành công!!";     
-        }else {
-            $mess_alert = "alert-danger";
-            $message_regis = "Tài khoản này đã tồn tại!";
-        }
-
-    }
-    
-   
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +29,7 @@
                             <div class="tab-pane fade show active" id="signup-form">
                                 <!-- Regis -->
                                 <h5 class="card-title">Đăng ký</h5>
-                                <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
+                                <form method="POST" action="">
                                     <div class="form-group">
                                         <label for="signup-username">Tên đăng nhập</label>
                                         <input type="text" class="form-control" name="username" id="signup-username">
@@ -90,6 +37,10 @@
                                     <div class="form-group">
                                         <label for="signup-password">Mật khẩu</label>
                                         <input type="password" class="form-control" name="pass" id="signup-password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="signup-key">Key đăng ký</label>
+                                        <input type="password" class="form-control" name="key" id="signup-key">
                                     </div>
 
                                     <?php if(isset($message_regis) && $message_regis!=''): ?>

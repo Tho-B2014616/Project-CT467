@@ -15,3 +15,44 @@ function addItem() {
 function removeItem(btn) {
     btn.closest(".input-group").remove();
 }
+
+// Hàm tạo nút phân trang
+function createPaginationButtons(totalPages, currentPage) {
+    const paginationContainer = document.getElementById('pagination-container');
+    paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = i;
+
+        if (i === currentPage) {
+            listItem.classList.add('active');
+        }
+
+        link.addEventListener('click', () => {
+            displayData(i);
+            highlightCurrentPage(i);
+        });
+
+        listItem.appendChild(link);
+        paginationContainer.appendChild(listItem);
+    }
+}
+
+// Hàm làm nổi bật trang hiện tại
+function highlightCurrentPage(page) {
+    const paginationContainer = document.getElementById('pagination-container');
+    const pages = paginationContainer.getElementsByTagName('li');
+
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].classList.remove('active');
+    }
+
+    pages[page - 1].classList.add('active');
+}
+
+// Hiển thị trang đầu tiên khi trang web được tải
+displayData(1);
+createPaginationButtons(Math.ceil(products.length / itemsPerPage), 1);

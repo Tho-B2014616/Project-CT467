@@ -130,6 +130,10 @@ input[type="radio"]:checked+label {
 
 /* Các Form thêm*/
 
+.form-display {
+    display: none;
+}
+
 .container__content {
     position: relative;
     top: 4rem;
@@ -163,4 +167,36 @@ input[type="radio"]:checked+label {
 .form__footer_btn-reset {
     transform: translateX(10px);
     padding: 7px 20px;
+}
+
+/* Phân trang */
+.pagination {
+    display: flex;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    color: #333;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.pagination li a:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination li.active a {
+    background-color: #4CAF50;
+    color: white;
 }

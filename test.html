@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .hidden {
+          display: none;
+        }
+      </style>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>
+          <input type="radio" name="inputType" value="text" onclick="showInput('text')"> Text Input
+        </label>
+        <label>
+          <input type="radio" name="inputType" value="number" onclick="showInput('number')"> Number Input
+        </label>
+        <label>
+          <input type="radio" name="inputType" value="date" onclick="showInput('date')"> Date Input
+        </label>
+    
+        <br>
+    
+        <input type="text" id="textInput" class="hidden" placeholder="Enter text">
+        <input type="number" id="numberInput" class="hidden" placeholder="Enter number">
+        <input type="date" id="dateInput" class="hidden">
+    
+      </form>
+</body>
+<script>
+    function showInput(inputType) {
+      // Hide all inputs
+      $('#textInput, #numberInput, #dateInput').addClass('hidden');
+        console.log($('#textInput, #numberInput, #dateInput'));
+      // Show the selected input
+      $('#' + inputType + 'Input').removeClass('hidden');
+    }
+  </script>
+</html>
